@@ -28,6 +28,11 @@ async function run() {
       const result = await coffeeCollection.insertOne(newCoffee);
       res.send(result);
     });
+
+    app.get("/coffees", async (req, res) => {
+      const result = await coffeeCollection.find().toArray();
+      res.send(result);
+    });
   } finally {
   }
 }
